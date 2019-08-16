@@ -3,7 +3,7 @@
 <div class="flex-container">
   <% @cocktails.each do |cocktail| %>
     <div class="card-product">
-      <%= cl_image_tag cocktail.photo%>
+      <%= cl_image_tag cocktail.photo %>
       <div class="card-product-infos">
         <h2><%= cocktail.name %></h2>
         <p><%= cocktail.description %></p>
