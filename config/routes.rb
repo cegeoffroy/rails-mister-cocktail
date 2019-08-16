@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # get 'cocktails/new', to: 'cocktails#new'
   # post 'cocktails', to: 'cocktails#create'
   # get 'cocktails/:id', to: 'cocktails#show', as: :cocktail
-  resources :cocktails, only: [ :index, :new, :create, :show ] do
-    resources :doses, only: [ :new, :create ]
+  root to: 'cocktails#index'
+  resources :cocktails do
+    resources :doses, only: [:new, :create]
   end
   resources :doses, only: [:destroy]
 end

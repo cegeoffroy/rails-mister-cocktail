@@ -1,17 +1,32 @@
-<h1><%= @cocktail.name %></h1>
+<div class="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <%= @cocktail.name %>
+</div>
+<div class="flex-container cocktail-information-container">
+  <div class="left-description-container">
+    <%= @cocktail.description %>
+    <%= link_to 'Edit', edit_cocktail_path %>
+  </div>
+  <% @cocktail.doses.each do |dose| %>
+  <div class="right-ingredients-container">
+    <div class="ingredients">
+      <li>
+        <%= dose.description %> <%= dose.ingredient.name %>
+        <%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+      </li>
+      <% end %>
+    </div>
+    <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+  </div>
+</div>
+
+<p><%= link_to 'Back to list', cocktails_path %></p>
 
 
-<% @cocktail.doses.each do |dose| %>
-  <li>
-    <%= dose.description %> <%= dose.ingredient.name %>
-    <%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
-  </li>
-<% end %>
 
 
-<p><%= link_to 'Back to list', cocktails_path %>
-    <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %>
 
-    </p>
+
+
+
 
 
