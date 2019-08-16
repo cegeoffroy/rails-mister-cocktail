@@ -1,17 +1,14 @@
-<div class="list-container">
-  <h1>List of cocktails</h1>
 
-
-<% @cocktails.each do |cocktail| %>
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= cocktail.name %></h2>
-    <p><%= cocktail.description %></p>
-    <p><%= link_to 'show', cocktail_path(cocktail) %></p>
-  </div>
-
-</div>
-<% end %>
-<%= link_to 'Add cocktail', 'cocktails/new'%>
+<h1 class="white-centered-title">List of cocktails</h1>
+<div class="flex-container">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-product">
+      <%= cl_image_tag cocktail.photo%>
+      <div class="card-product-infos">
+        <h2><%= cocktail.name %></h2>
+        <p><%= cocktail.description %></p>
+        <p><%= link_to 'show', cocktail_path(cocktail) %></p>
+      </div>
+    </div>
+  <% end %>
 </div>

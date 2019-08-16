@@ -1,8 +1,25 @@
-.flex-container {
-  display: flex;
-  justify-content: center;
+.white-centered-title {
+  padding-top: 100px;
+  text-align: center;
+  color: white;
 }
 
-.flex-item
+.flex-container {
+  display: flex;
+  margin-left: 24px;
+  padding-top: 100px;
+}
 
+.left-block-container {
+  margin-left: 50px;
+  width: 350px;
+}
+.right-block-container {
+  margin-left: 50px;
+  width: 350px;
+  color: white;
+}
+
+.form-new-cocktail {
+  padding-top: 100px;
 }

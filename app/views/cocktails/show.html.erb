@@ -1,12 +1,16 @@
-<div class="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <%= @cocktail.name %>
-</div>
-<div class="flex-container cocktail-information-container">
-  <div class="left-description-container">
-    <%= @cocktail.description %>
-    <%= link_to 'Edit', edit_cocktail_path %>
+<div class="flex-container show-container">
+  <div class="left-block-container">
+    <div class="image-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+      <%= @cocktail.name %>
+    </div>
+    <div class="description-container">
+      <p style="color: white"><%= @cocktail.description %></p>
+      <a class="btn btn-ghost" href="<%= edit_cocktail_path %>">Edit</a>
+      <p><%= link_to 'Edit', edit_cocktail_path %></p>
+    </div>
   </div>
-  <% @cocktail.doses.each do |dose| %>
+  <div class="right-block-container">
+    <% @cocktail.doses.each do |dose| %>
   <div class="right-ingredients-container">
     <div class="ingredients">
       <li>
@@ -17,9 +21,11 @@
     </div>
     <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
   </div>
+  </div>
 </div>
+<a class="btn btn-ghost" href="<%= cocktails_path %>">Back to list</a>
 
-<p><%= link_to 'Back to list', cocktails_path %></p>
+
 
 
 
