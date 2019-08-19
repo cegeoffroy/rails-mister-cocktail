@@ -1,7 +1,8 @@
-<div class="flex-container show-container">
+<div class="flex-container">
   <div class="left-block-container">
-    <div class="image-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
-      <%= @cocktail.name %>
+    <div class="image-cocktail" >
+      <%= cl_image_tag @cocktail.photo %>
+
     </div>
     <div class="description-container">
       <p style="color: white"><%= @cocktail.description %></p>
@@ -10,6 +11,14 @@
     </div>
   </div>
   <div class="right-block-container">
+    <h2><%= @cocktail.name %></h2>
+    <ul class="list-inline">
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+      <li><i class="fas fa-star"></i></li>
+    </ul>
     <% @cocktail.doses.each do |dose| %>
   <div class="right-ingredients-container">
     <div class="ingredients">
@@ -24,7 +33,6 @@
   </div>
 </div>
 <a class="btn btn-ghost" href="<%= cocktails_path %>">Back to list</a>
-
 
 
 
